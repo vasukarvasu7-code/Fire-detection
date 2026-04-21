@@ -13,7 +13,7 @@ except:
 class FireDetectionGUI:
     def __init__(self, root):
         self.root = root
-        self.root.title("🔥 Fire Detection System")
+        self.root.title(" Fire Detection System")
         self.root.geometry("500x400")
 
         self.threshold = 60
@@ -51,22 +51,22 @@ class FireDetectionGUI:
         if SOUND:
             winsound.Beep(1000, 500)
         else:
-            print("🔊 Alarm!")
+            print("Alarm!")
 
     def update_system(self):
         if not self.running:
             return
 
         temp = self.read_sensor()
-        self.temp_label.config(text=f"🌡 Temperature: {temp} °C")
+        self.temp_label.config(text=f" Temperature: {temp} °C")
 
         if self.check_fire(temp):
             self.root.configure(bg="red")
-            self.status_label.config(text="🚨 FIRE DETECTED!", fg="white", bg="red")
+            self.status_label.config(text=" FIRE DETECTED!", fg="white", bg="red")
             self.alarm()
         else:
             self.root.configure(bg="green")
-            self.status_label.config(text="✅ SAFE", fg="white", bg="green")
+            self.status_label.config(text="SAFE", fg="white", bg="green")
 
         # Repeat every 2 seconds
         self.root.after(2000, self.update_system)
